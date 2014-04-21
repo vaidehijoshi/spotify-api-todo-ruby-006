@@ -23,4 +23,4 @@ def foo(arg)
 end
 ```
 
-Inline code has back-ticks around it. Like this `@bar = arg` and this `var myVar = [1,2,3]`.
+Inline code has back-ticks around it. Like this: `@bar = arg` and this: `var myVar = [1,2,3]`.
