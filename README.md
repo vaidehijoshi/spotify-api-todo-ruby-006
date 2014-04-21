@@ -14,7 +14,7 @@ Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
 [I'm an inline-style link](http://flatironschool.com)
 
-Inline-style: 
+Inline-style picture: 
 ![alt text](http://flatironschool.com/img/headshot/avi-flombaum.jpg "Headshot Title Text 1")
 
 ```ruby
