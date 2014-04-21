@@ -1,21 +1,15 @@
-require_relative './spec_helper'
-require_relative '../my_file.rb'
+require_relative 'spec_helper'
 
 describe 'Foo' do
 
   before(:each) do
-    @foo = Foo.new('arg1', ["arg2"], {:arg=>3})
+    @foo = Foo.new
   end
   
-  describe '#bar' do
-    context 'context here' do
-      it 'description here' do
-        expect(@foo.bar).should be_an(Integer/String/Fixnum)
-      end
-    end
-    context 'second context' do
-      it 'second description' do
-        expect(@foo.bar).to eq('true/false/integer/string/etc.')
+  describe '#method_name' do
+    context 'context goes here' do
+      it 'description goes here' do
+        expect().to eq()
       end
     end
   end
