@@ -24,3 +24,5 @@ end
 ```
 
 Inline code has back-ticks around it. Like this: `@bar = arg` and this: `var myVar = [1,2,3]`.
+
+For more info on Markdown, go [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
