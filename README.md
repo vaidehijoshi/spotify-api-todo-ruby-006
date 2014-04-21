@@ -10,7 +10,7 @@ Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
 1. First ordered list item
 2. Another item
-⋅⋅* Unordered sub-list.
+  * Unordered sub-list.
 
 [I'm an inline-style link](http://flatironschool.com)
 
