@@ -1,16 +1,12 @@
 require_relative 'spec_helper'
 
-describe 'Foo' do
+describe Foo do
 
-  before(:each) do
-    @foo = Foo.new
-  end
-  
+  let(:foo) {Foo.new(1,2,3)}
+
   describe '#method_name' do
-    context 'context goes here' do
-      it 'description goes here' do
-        expect().to eq()
-      end
+    it 'description goes here' do
+      expect(foo.bar).to eq(nil)
     end
   end
 
