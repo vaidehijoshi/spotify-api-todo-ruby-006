@@ -5,7 +5,8 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require_relative '../spotify_chart.rb'
-require_relative './spec_spotify_chart.rb'
+
+require 'base64'
 
 RSpec.configure do |config|
   # Use color not only in STDOUT but also in pagers and files
