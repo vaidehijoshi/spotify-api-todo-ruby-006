@@ -1,25 +1,26 @@
 ---
-tags: template, procedural
-language: ruby, rb
-resources: 0
+tags: WIP, todo, api, json
+language: ruby
+resources: 1
 ---
 
-# Basic Procedural App Template
+# Spotify's Chart API Todo
 
-## Structure
+## Objective
 
-```bash
-procedural-ruby-template/
-├── README.md
-├── .rspec
-├── my_file.rb
-└── spec
-    └── spec_helper.rb
-    └── my_file_spec.rb
-```
+Get more familiar with using APIs and parsing JSON in Ruby.
 
-## Usage
+## Introduction
 
-This template is for simple test driven procedural ruby labs with no classes, and everything done in one file. Labs like [Badges and Schedules](https://github.com/flatiron-school-curriculum/badges-and-schedules)
+Scraping sites is one way to get data but many times, companies will expose more data through their application programming interfaces, or APIs. For this todo, we're going to focus on Spotify's chart API.
+
+## Instructions
+* This is a test-driven lab so just get those specs to pass!
+
+## Extra Credit
+* Make a commandline app that interacts with the API.
 
 ## Resources
+* [StackOverflow](http://stackoverflow.com/) - [JSON.load](http://stackoverflow.com/questions/18581792/ruby-on-rails-and-json-parser-from-url?answertab=votes#tab-top)
+* [RubyDocs](http://www.ruby-doc.org/) - [JSON Load Method](http://www.ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html#method-i-load)
+* [Spotify](https://developer.spotify.com/) - [Chart Documentation](http://charts.spotify.com/docs)
