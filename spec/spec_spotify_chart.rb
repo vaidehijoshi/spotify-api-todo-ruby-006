@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'json'
 
-class SpotifyChart
+class SpecSpotifyChart
   attr_reader :streamed, :shared
 
   def initialize(region_abbreviation)

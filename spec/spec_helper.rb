@@ -4,12 +4,10 @@
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require_relative '../my_file'
+require_relative '../spotify_chart.rb'
+require_relative './spec_spotify_chart.rb'
 
 RSpec.configure do |config|
-  # Use color in STDOUT
-  config.color_enabled = true
-
   # Use color not only in STDOUT but also in pagers and files
   config.tty = true
 
