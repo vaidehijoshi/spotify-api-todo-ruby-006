@@ -8,7 +8,7 @@ resources: 1
 
 ## Objective
 
-Get more familiar with using APIs and thier JSON contents in Ruby.
+Get more familiar with using APIs and their JSON contents in Ruby.
 
 ## Introduction
 
