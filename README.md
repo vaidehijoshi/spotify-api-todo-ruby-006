@@ -1,5 +1,5 @@
 ---
-tags: WIP, todo, api, json
+tags: todo, api, json
 language: ruby
 resources: 1
 ---
