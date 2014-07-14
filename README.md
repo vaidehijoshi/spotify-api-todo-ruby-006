@@ -12,7 +12,7 @@ Get more familiar with using APIs and parsing JSON in Ruby.
 
 ## Introduction
 
-Scraping sites is one way to get data but many times, companies will expose more data through their application programming interfaces, or APIs. For this todo, we're going to focus on Spotify's chart API.
+Scraping sites is one way to get data but many times, companies will expose more data through their application programming interfaces, or APIs. For this todo, we're going to focus on [Spotify's chart API](http://charts.spotify.com/docs).
 
 ## Instructions
 * This is a test-driven lab so just get those specs to pass!
