@@ -2,33 +2,30 @@ require 'open-uri'
 require 'json'
 
 class SpotifyChart
-  attr_reader :country_data
+  attr_reader :streamed, :shared
 
-  def initialize(country_abbreviation)
-    url = "http://charts.spotify.com/api/charts/most_streamed/"
-    @country_data = JSON.load(open("#{url}#{country_abbreviation}/latest"))
+  def initialize(region_abbreviation)
+    base_url = "http://charts.spotify.com/api/charts"
+    @streamed = JSON.load(open("#{base_url}/most_streamed/#{region_abbreviation}/latest"))
+    @shared = JSON.load(open("#{base_url}/most_shared/#{region_abbreviation}/latest"))
   end
 
-  def most_popular_song
-    artist = country_data["tracks"][0]["artist_name"]
-    track_title = country_data["tracks"][0]["track_name"] 
-    album = country_data["tracks"][0]["album_name"] 
-    "'#{track_title}'' by '#{artist}'' from the album '#{album}'"
+  def most_streamed
+    artist = streamed["tracks"][0]["artist_name"]
+    track_title = streamed["tracks"][0]["track_name"] 
+    album = streamed["tracks"][0]["album_name"] 
+    "'#{track_title}' by '#{artist}' from the album '#{album}'"
   end
 
-  #def most_popular_song
-
-  #end
-
-  def second_most_popular_songs_artist
-
-  end
-
-  def third_most_popular_songs_album
-
+  def most_shared
+    artist = shared["tracks"][0]["artist_name"]
+    track_title = shared["tracks"][0]["track_name"] 
+    album = shared["tracks"][0]["album_name"] 
+    "'#{track_title}' by '#{artist}' from the album '#{album}'"
   end
 
 end
 
 my_chart = SpotifyChart.new("us")
-puts my_chart.most_popular_song
+puts my_chart.most_streamed
+puts my_chart.most_shared
