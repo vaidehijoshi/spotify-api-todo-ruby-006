@@ -1,7 +1,7 @@
 ---
 tags: todo, api, json
 language: ruby
-resources: 1
+resources: 3
 ---
 
 # Spotify's Chart API Todo
