@@ -20,7 +20,7 @@ Scraping sites is one way to get data but many times, companies will expose more
   * [http://charts.spotify.com/api/charts/]( http://charts.spotify.com/api/charts/)
   * [http://charts.spotify.com/api/charts/most_shared](http://charts.spotify.com/api/charts/most_shared)
 
-## Extra Credit
+## Bonus
 * Make a command line app that interacts with the API.
 
 ## Resources
