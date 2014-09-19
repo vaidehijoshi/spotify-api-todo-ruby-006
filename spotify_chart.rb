@@ -10,18 +10,17 @@ class SpotifyChart
     @shared = JSON.load(open("#{base_url}/most_shared/#{region_abbreviation}/latest"))
   end
 
+  def fetch_track_album_artist(json)
+    song = json["tracks"][0]
+    "'#{song["track_name"]}' by '#{song["artist_name"]}' from the album '#{song["album_name"]}'"
+  end
+
   def most_streamed
-    artist = streamed["tracks"][0]["artist_name"]
-    track_title = streamed["tracks"][0]["track_name"] 
-    album = streamed["tracks"][0]["album_name"] 
-    "'#{track_title}' by '#{artist}' from the album '#{album}'"
+    fetch_track_album_artist(streamed)
   end
 
   def most_shared
-    artist = shared["tracks"][0]["artist_name"]
-    track_title = shared["tracks"][0]["track_name"] 
-    album = shared["tracks"][0]["album_name"] 
-    "'#{track_title}' by '#{artist}' from the album '#{album}'"
+    fetch_track_album_artist(shared)
   end
 
 end
