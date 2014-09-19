@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+require 'pry'
 
 class SpotifyChart
   attr_reader :base_url
@@ -18,7 +19,7 @@ class SpotifyChart
 
   def fetch_track_album_artist(json)
     song = json["tracks"][0]
-    "'#{song["track_name"]}' by '#{song["artist_name"]}' from the album '#{song["album_name"]}'"
+    "'#{song["track_name"]}' by #{song["artist_name"]} from the album #{song["album_name"]}"
   end
 
   def most_streamed(region)

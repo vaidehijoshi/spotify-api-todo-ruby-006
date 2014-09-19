@@ -64,53 +64,75 @@ describe SpotifyChart do
 
   end
 
-  describe "#fetch_track_album_artist" do
 
-    let(:song_json) { JSON.parse( IO.read("spec/support/example_api.json")) }
+  describe "#fetch_track_album_artist" do
      
+    let(:json) { JSON.parse( IO.read("spec/support/us_most_streamed.json")) }
+    
     it "accepts one argument, a hash object" do
-      expect { spotify_chart.fetch_track_album_artist(song_json) }.to_not raise_error
+      expect { spotify_chart.fetch_track_album_artist(json) }.to_not raise_error
     end
 
     it "returns a string" do
-      expect(spotify_chart.fetch_track_album_artist(song_json).class).to eq(String)
+      expect(spotify_chart.fetch_track_album_artist(json).class).to eq(String)
     end
 
-    it "returns '<song>' - by '<artist>' from the album '<album>'" do
-      expect(spotify_chart.fetch_track_album_artist(song_json)).to eq("'All About That Bass' by 'Meghan Trainor' from the album 'Title'")
+    it "returns '<song>' - by <artist> from the album <album>" do
+      expect(spotify_chart.fetch_track_album_artist(json)).to eq("'All About That Bass' by Meghan Trainor from the album Title")
     end
   end
 
-  # # test spec setup
-  # let(:test_us_chart) { SpecSpotifyChart.new("us") }
-  # let(:test_gb_chart) { SpecSpotifyChart.new("gb") }
+  describe '#most_streamed' do
 
-  # describe '#most_streamed' do
-  #   it "accepts one argument, the region" do
-  #     expect { spotify_chart.most_streamed("us") }.to_not raise_error
-  #   end
+    it "accepts one argument, the region" do
+      expect { spotify_chart.most_streamed("us") }.to_not raise_error
+    end
 
-  #   it "returns America's most streamed track title, artist, and album" do
-  #     expect(spotify_chart.most_streamed("us")).to eq(test_us_chart.most_streamed)
-  #   end
+    it "returns America's most streamed track title, artist, and album" do
+      # subbing out get_json method so that test can predict result
+      class SpotifyChart
+        def get_json(arg)
+          JSON.parse( IO.read("spec/support/us_most_streamed.json"))
+        end
+      end
+      expect(SpotifyChart.new.most_streamed("us")).to eq("'All About That Bass' by Meghan Trainor from the album Title")
+    end
 
-  #   it "returns Great Britain's most streamed track title, artist, and album" do
-  #     expect(spotify_chart.most_streamed("gb")).to eq(test_gb_chart.most_streamed)
-  #   end
-  # end
+    it "returns Great Britain's most streamed track title, artist, and album" do
+      # subbing out get_json method so that test can predict result
+      class SpotifyChart
+        def get_json(arg)
+          JSON.parse( IO.read("spec/support/gb_most_streamed.json"))
+        end
+      end
+      expect(SpotifyChart.new.most_streamed("gb")).to eq("'Prayer In C - Robin Schulz Radio Edit' by Lilly Wood from the album Prayer In C")
+    end
+  end
 
-  # describe '#most_shared' do
-  #   it "accepts one argument, the region" do
-  #     expect { spotify_chart.most_shared("us") }.to_not raise_error
-  #   end
+  describe '#most_shared' do
+    it "accepts one argument, the region" do
+      expect { spotify_chart.most_shared("us") }.to_not raise_error
+    end
 
-  #   it "returns America's most shared track title, artist, and album" do
-  #     expect(spotify_chart.most_shared("us")).to eq(test_us_chart.most_shared)
-  #   end
+    it "returns America's most shared track title, artist, and album" do
+      # subbing out get_json method so that test can predict result
+      class SpotifyChart
+        def get_json(arg)
+          JSON.parse( IO.read("spec/support/us_most_shared.json"))
+        end
+      end
+      expect(spotify_chart.most_shared("us")).to eq("'Shut Up and Dance' by WALK THE MOON from the album Shut Up and Dance")
+    end
 
-  #   it "returns Great Britain's most shared track title, artist, and album" do
-  #     expect(spotify_chart.most_shared("gb")).to eq(test_gb_chart.most_shared)
-  #   end
-  # end
+    it "returns Great Britain's most shared track title, artist, and album" do
+      # subbing out get_json method so that test can predict result
+      class SpotifyChart
+        def get_json(arg)
+          JSON.parse( IO.read("spec/support/gb_most_shared.json"))
+        end
+      end
+      expect(spotify_chart.most_shared("gb")).to eq("'Never Catch Me (feat. Kendrick Lamar)' by Flying Lotus from the album Never Catch Me (feat. Kendrick Lamar)")
+    end
+  end
 
 end
