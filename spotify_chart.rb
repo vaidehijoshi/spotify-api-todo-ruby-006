@@ -1,35 +1,26 @@
-require 'open-uri'
-require 'json'
-require 'pry'
+# require files/modules/libraries here
 
-class SpotifyChart
-  attr_reader :base_url
+class ClassName
+  # attrs here
 
-  def initialize
-    @base_url = "http://charts.spotify.com/api/charts/"
+  def get_url
+    # code get_url here
   end
 
-  def get_url(version, region)
-    base_url + version + "/" + region  + "/latest"
+  def get_json
+    # code get_json here
   end
 
-  def get_json(url)
-    JSON.load(open(url))
+  def fetch_track_album_artist
+    # code fetch_track_album_artist here
   end
 
-  def fetch_track_album_artist(json)
-    song = json["tracks"][0]
-    "'#{song["track_name"]}' by #{song["artist_name"]} from the album #{song["album_name"]}"
+  def most_streamed
+    # code most_streamed here
   end
 
-  def most_streamed(region)
-    json = get_json(get_url("most_streamed", region))
-    fetch_track_album_artist(json)
-  end
-
-  def most_shared(region)
-    json = get_json(get_url("most_shared", region))
-    fetch_track_album_artist(json)
+  def most_shared
+    # code most_shared here
   end
 
 end
