@@ -4,9 +4,8 @@
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require_relative '../spotify_chart.rb'
-
 require 'base64'
+require_relative '../spotify_chart.rb'
 
 RSpec.configure do |config|
   config.tty = true
