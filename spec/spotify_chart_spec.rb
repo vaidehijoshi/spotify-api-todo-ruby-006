@@ -17,37 +17,36 @@ describe SpotifyChart do
       expect { spotify_chart.get_url("most_streamed", "us") }.to_not raise_error
     end
 
+    let(:us_most_shared)   { spotify_chart.get_url("most_shared",   "us") }
+    let(:gb_most_streamed) { spotify_chart.get_url("most_streamed", "gb") }
+
     it "returns a string" do
-      expect(spotify_chart.get_url("most_streamed", "us").class).to eq(String)
+      expect(us_most_shared.class).to eq(String)
     end
 
-    it "returns a string with the base url followed by 'most_streamed',
-    including the region abbreviation,
-    and ending with 'latest' when most streamed is queried" do
-      region = "gb"
-      my_url = spotify_chart.get_url("most_streamed", "gb")
+    it "- returns a string with the base url followed by 'most_streamed',
+       including the region abbreviation,
+       and ending with 'latest' when most streamed is queried" do
       regex = /http:\/\/charts.spotify.com\/api\/charts\/most_streamed\//
-      regex_results = [regex.match(my_url), /\/latest/.match(my_url), /#{region}/.match(my_url)]
+      regex_results = [regex.match(gb_most_streamed), /\/latest/.match(gb_most_streamed), /gb/.match(gb_most_streamed)]
       regex_results.each do |match|
         expect(match).to_not be_nil
       end
     end
 
-    it "returns a string with the base url followed by 'most_shared', 
-    including the region abbreviation, 
-    and ending with 'latest' when most shared is queried" do
-      region = "us"
-      my_url = spotify_chart.get_url("most_shared", region)
+    it "- returns a string with the base url followed by 'most_shared', 
+       including the region abbreviation, 
+       and ending with 'latest' when most shared is queried" do
       regex = /http:\/\/charts.spotify.com\/api\/charts\/most_shared\//
-      regex_results = [regex.match(my_url), /\/latest/.match(my_url), /#{region}/.match(my_url)]
+      regex_results = [regex.match(us_most_shared), /\/latest/.match(us_most_shared), /us/.match(us_most_shared)]
       regex_results.each do |match|
         expect(match).to_not be_nil
       end
     end
 
     it "returns the correct url for querying the API based on most shared/streamed and region abbreviation" do
-      expect(spotify_chart.get_url("most_streamed", "gb")).to eq("http://charts.spotify.com/api/charts/most_streamed/gb/latest")
-      expect(spotify_chart.get_url("most_shared", "us")).to eq("http://charts.spotify.com/api/charts/most_shared/us/latest")
+      expect(gb_most_streamed).to eq("http://charts.spotify.com/api/charts/most_streamed/gb/latest")
+      expect(us_most_shared).to eq("http://charts.spotify.com/api/charts/most_shared/us/latest")
     end
   
   end
@@ -64,6 +63,7 @@ describe SpotifyChart do
     end
 
   end
+
   # test spec setup
   let(:test_us_chart) { SpecSpotifyChart.new("us") }
   let(:test_gb_chart) { SpecSpotifyChart.new("gb") }
