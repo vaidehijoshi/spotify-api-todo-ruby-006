@@ -1,6 +1,3 @@
-require_relative 'spec_helper'
-require 'pry'
-
 describe SpotifyChart do
 
   let(:american_chart) {SpotifyChart.new("us")}
@@ -35,7 +32,6 @@ describe SpotifyChart do
     it "returns Great Britain's most shared track title, artist, and album" do
       expect(british_chart.most_shared).to eq(SpecSpotifyChart.new("gb").most_shared)
     end
-
 
   end
 end
