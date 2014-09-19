@@ -1,0 +1,46 @@
+{  
+   "tracks":[  
+      {  
+         "date":"2014-09-14",
+         "country":"US",
+         "track_url":"https://play.spotify.com/track/1q676iYDR3GeJtOHdyggIU",
+         "track_name":"All About That Bass",
+         "artist_name":"Meghan Trainor",
+         "artist_url":"https://play.spotify.com/artist/6JL8zeS1NmiOftqZTRgdTz",
+         "album_name":"Title",
+         "album_url":"https://play.spotify.com/album/23T52TnvD0UqLRsuRHHAHA",
+         "artwork_url":"http://o.scdn.co/300/d6e8722488dd1234290a2085b6f02418fb132e95",
+         "num_streams":"3557238",
+         "window_type":"weekly",
+         "percent_male":"nil",
+         "percent_age_group_0_17":"nil",
+         "percent_age_group_18_24":"nil",
+         "percent_age_group_25_29":"nil",
+         "percent_age_group_30_34":"nil",
+         "percent_age_group_35_44":"nil",
+         "percent_age_group_45_54":"nil",
+         "percent_age_group_55_plus":"nil"
+      },
+      {  
+         "date":"2014-09-14",
+         "country":"US",
+         "track_url":"https://play.spotify.com/track/4E8KoNTXZnWDE3cCjjw8FU",
+         "track_name":"Break Free",
+         "artist_name":"Ariana Grande",
+         "artist_url":"https://play.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR",
+         "album_name":"Break Free",
+         "album_url":"https://play.spotify.com/album/1mm6ptDXW0rC1porhpHf7q",
+         "artwork_url":"http://o.scdn.co/300/115504b583cd1822db417ee8eea6ae13809dd6f0",
+         "num_streams":"2521458",
+         "window_type":"weekly",
+         "percent_male":"nil",
+         "percent_age_group_0_17":"nil",
+         "percent_age_group_18_24":"nil",
+         "percent_age_group_25_29":"nil",
+         "percent_age_group_30_34":"nil",
+         "percent_age_group_35_44":"nil",
+         "percent_age_group_45_54":"nil",
+         "percent_age_group_55_plus":"nil"
+      }
+   ]
+}

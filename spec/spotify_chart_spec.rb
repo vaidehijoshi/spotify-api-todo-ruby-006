@@ -49,7 +49,7 @@ describe SpotifyChart do
       expect(us_most_shared).to eq("http://charts.spotify.com/api/charts/most_shared/us/latest")
     end
   
-  end
+  end # get_url
 
   describe "#get_json" do
     let(:url) { "http://api.openweathermap.org/data/2.5/weather?q=NewYork" }
@@ -64,36 +64,53 @@ describe SpotifyChart do
 
   end
 
-  # test spec setup
-  let(:test_us_chart) { SpecSpotifyChart.new("us") }
-  let(:test_gb_chart) { SpecSpotifyChart.new("gb") }
+  describe "#fetch_track_album_artist" do
 
-  describe '#most_streamed' do
-    it "accepts one argument, the region" do
-      expect { spotify_chart.most_streamed("us") }.to_not raise_error
+    let(:song_json) { JSON.parse( IO.read("spec/support/example_api.json")) }
+     
+    it "accepts one argument, a hash object" do
+      expect { spotify_chart.fetch_track_album_artist(song_json) }.to_not raise_error
     end
 
-    it "returns America's most streamed track title, artist, and album" do
-      expect(spotify_chart.most_streamed("us")).to eq(test_us_chart.most_streamed)
+    it "returns a string" do
+      expect(spotify_chart.fetch_track_album_artist(song_json).class).to eq(String)
     end
 
-    it "returns Great Britain's most streamed track title, artist, and album" do
-      expect(spotify_chart.most_streamed("gb")).to eq(test_gb_chart.most_streamed)
-    end
-  end
-
-  describe '#most_shared' do
-    it "accepts one argument, the region" do
-      expect { spotify_chart.most_shared("us") }.to_not raise_error
-    end
-
-    it "returns America's most shared track title, artist, and album" do
-      expect(spotify_chart.most_shared("us")).to eq(test_us_chart.most_shared)
-    end
-
-    it "returns Great Britain's most shared track title, artist, and album" do
-      expect(spotify_chart.most_shared("gb")).to eq(test_gb_chart.most_shared)
+    it "returns '<song>' - by '<artist>' from the album '<album>'" do
+      expect(spotify_chart.fetch_track_album_artist(song_json)).to eq("'All About That Bass' by 'Meghan Trainor' from the album 'Title'")
     end
   end
+
+  # # test spec setup
+  # let(:test_us_chart) { SpecSpotifyChart.new("us") }
+  # let(:test_gb_chart) { SpecSpotifyChart.new("gb") }
+
+  # describe '#most_streamed' do
+  #   it "accepts one argument, the region" do
+  #     expect { spotify_chart.most_streamed("us") }.to_not raise_error
+  #   end
+
+  #   it "returns America's most streamed track title, artist, and album" do
+  #     expect(spotify_chart.most_streamed("us")).to eq(test_us_chart.most_streamed)
+  #   end
+
+  #   it "returns Great Britain's most streamed track title, artist, and album" do
+  #     expect(spotify_chart.most_streamed("gb")).to eq(test_gb_chart.most_streamed)
+  #   end
+  # end
+
+  # describe '#most_shared' do
+  #   it "accepts one argument, the region" do
+  #     expect { spotify_chart.most_shared("us") }.to_not raise_error
+  #   end
+
+  #   it "returns America's most shared track title, artist, and album" do
+  #     expect(spotify_chart.most_shared("us")).to eq(test_us_chart.most_shared)
+  #   end
+
+  #   it "returns Great Britain's most shared track title, artist, and album" do
+  #     expect(spotify_chart.most_shared("gb")).to eq(test_gb_chart.most_shared)
+  #   end
+  # end
 
 end

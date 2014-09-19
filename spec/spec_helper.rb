@@ -5,9 +5,11 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'base64'
+require "pry"
 require_relative '../spotify_chart.rb'
 
 RSpec.configure do |config|
+
   config.tty = true
   config.order = 'default'
 
