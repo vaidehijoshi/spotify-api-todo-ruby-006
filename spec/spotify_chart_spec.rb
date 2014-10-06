@@ -63,8 +63,10 @@ describe SpotifyChart do
       expect(spotify_chart.get_json(url).class).to eq(Hash)
     end
 
+    it "is the Ruby Hash version of JSON from a url" do
+      expect(spotify_chart.get_json(url)).to eq(JSON.load(open(url)))
+    end
   end
-
 
   describe "#fetch_track_album_artist" do
      
