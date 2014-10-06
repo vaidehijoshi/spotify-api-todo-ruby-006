@@ -15,6 +15,7 @@ class SpotifyChart
 
   def get_json(url)
     # load json given a url here
+    # refer to the references if you have questions about this
   end
 
   def fetch_track_album_artist(music_hash)
