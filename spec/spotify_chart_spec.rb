@@ -13,30 +13,31 @@ describe SpotifyChart do
   let(:spotify_chart) { SpotifyChart.new }
 
   describe "#get_url" do
-    it "accepts two arguments, most_streamed/most_shared and region" do
+    it "- accepts two arguments, most_streamed/most_shared and region" do
       expect { spotify_chart.get_url("most_streamed", "us") }.to_not raise_error
     end
 
     let(:us_most_shared)   { spotify_chart.get_url("most_shared",   "us") }
     let(:gb_most_streamed) { spotify_chart.get_url("most_streamed", "gb") }
 
-    it "returns a string" do
+    it "- returns a string" do
       expect(us_most_shared.class).to eq(String)
     end
 
-    it "- returns a string with the base url followed by 'most_streamed',
-       including the region abbreviation,
-       and ending with 'latest' when most streamed is queried" do
+    it "- returns a string with the base url
+      followed by a slash
+      then the first argument
+      followed by a slash
+      then the second argument
+      followed by a slash
+      ending with 'latest'                        " do
+
       regex = /http:\/\/charts.spotify.com\/api\/charts\/most_streamed\//
       regex_results = [regex.match(gb_most_streamed), /\/latest/.match(gb_most_streamed), /gb/.match(gb_most_streamed)]
       regex_results.each do |match|
         expect(match).to_not be_nil
       end
-    end
 
-    it "- returns a string with the base url followed by 'most_shared', 
-       including the region abbreviation, 
-       and ending with 'latest' when most shared is queried" do
       regex = /http:\/\/charts.spotify.com\/api\/charts\/most_shared\//
       regex_results = [regex.match(us_most_shared), /\/latest/.match(us_most_shared), /us/.match(us_most_shared)]
       regex_results.each do |match|
@@ -44,7 +45,7 @@ describe SpotifyChart do
       end
     end
 
-    it "returns the correct url for querying the API based on most shared/streamed and region abbreviation" do
+    it "- returns the correct url for querying the API based on most shared/streamed and region abbreviation" do
       expect(gb_most_streamed).to eq("http://charts.spotify.com/api/charts/most_streamed/gb/latest")
       expect(us_most_shared).to eq("http://charts.spotify.com/api/charts/most_shared/us/latest")
     end
@@ -77,7 +78,7 @@ describe SpotifyChart do
       expect(spotify_chart.fetch_track_album_artist(json).class).to eq(String)
     end
 
-    it "returns '<song>' - by <artist> from the album <album>" do
+    it "returns '<song>' by <artist> from the album <album>" do
       expect(spotify_chart.fetch_track_album_artist(json)).to eq("'All About That Bass' by Meghan Trainor from the album Title")
     end
   end
