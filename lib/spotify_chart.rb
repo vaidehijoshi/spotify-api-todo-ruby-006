@@ -19,9 +19,31 @@ class SpotifyChart
   end
 
   def fetch_track_album_artist(music_hash)
-    # given some json, this method should return a string like:
-    # 'track name' by artist name from the album album name
-   end
+    # example music_hash:
+    # {  
+    #   "tracks" => [  
+    #     {  
+    #       "date"         =>"2014-09-14",
+    #       "track_name"   =>"All About That Bass",
+    #       "artist_name"  =>"Meghan Trainor",
+    #       "album_name"   =>"Title"
+    #     },
+    #     {  
+    #       "date"         =>"2014-09-14",
+    #       "track_name"   =>"Break Free",
+    #       "artist_name"  =>"Ariana Grande",
+    #       "album_name"   =>"Break Free"
+    #     }
+    #   ]
+    # }
+
+    # given a hash, like the one above, this method should return a string like:
+    # 'track name' by artist name from the album name
+  
+    # the track name, artist name, and album name should be the first track in the
+    # tracks array
+  end
+
 
   def most_streamed(region)
     # call no get_url here, where preference is the string 'most_streamed',
