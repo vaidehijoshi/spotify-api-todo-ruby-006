@@ -5,7 +5,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require "pry"
-require_relative '../spotify_chart.rb'
+require_relative '../lib/spotify_chart.rb'
 
 RSpec.configure do |config|
   config.order = 'default'
