@@ -38,7 +38,7 @@ class SpotifyChart
     # }
 
     # given a hash, like the one above, this method should return a string like:
-    # 'track name' by artist name from the album name
+    # '<track name>' by <artist name> from the <album name>
   
     # the track name, artist name, and album name should be the first track in the
     # tracks array
