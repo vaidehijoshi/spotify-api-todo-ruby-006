@@ -5,8 +5,8 @@ describe SpotifyChart do
       expect { SpotifyChart.new }.to_not raise_error
     end
 
-    it "sets a variable 'base_url' as the root url of the Spotify Chart API" do
-      expect(SpotifyChart.new.base_url).to eq("http://charts.spotify.com/api/charts/")
+    it "sets a constant 'base_url' as the root url of the Spotify Chart API" do
+      expect(SpotifyChart::BASE_URL).to eq("http://charts.spotify.com/api/tracks/")
     end
   end
 
@@ -32,13 +32,13 @@ describe SpotifyChart do
       followed by a slash
       ending with 'latest'                        " do
 
-      regex = /http:\/\/charts.spotify.com\/api\/charts\/most_streamed\//
+      regex = /http:\/\/charts.spotify.com\/api\/tracks\/most_streamed\//
       regex_results = [regex.match(gb_most_streamed), /\/latest/.match(gb_most_streamed), /gb/.match(gb_most_streamed)]
       regex_results.each do |match|
         expect(match).to_not be_nil
       end
 
-      regex = /http:\/\/charts.spotify.com\/api\/charts\/most_shared\//
+      regex = /http:\/\/charts.spotify.com\/api\/tracks\/most_shared\//
       regex_results = [regex.match(us_most_shared), /\/latest/.match(us_most_shared), /us/.match(us_most_shared)]
       regex_results.each do |match|
         expect(match).to_not be_nil
@@ -46,11 +46,11 @@ describe SpotifyChart do
     end
 
     it "- returns the correct url for querying the API based on most shared/streamed and region abbreviation" do
-      expect(gb_most_streamed).to eq("http://charts.spotify.com/api/charts/most_streamed/gb/latest")
-      expect(us_most_shared).to eq("http://charts.spotify.com/api/charts/most_shared/us/latest")
+      expect(gb_most_streamed).to eq("http://charts.spotify.com/api/tracks/most_streamed/gb/latest")
+      expect(us_most_shared).to eq("http://charts.spotify.com/api/tracks/most_shared/us/latest")
     end
   
-  end # get_url
+  end
 
   describe "#get_json" do
     let(:url) { "http://api.openweathermap.org/data/2.5/weather?q=NewYork" }
@@ -70,18 +70,18 @@ describe SpotifyChart do
 
   describe "#fetch_track_album_artist" do
      
-    let(:json) { JSON.parse( IO.read("spec/support/us_most_streamed.json")) }
+    let(:us_most_streamed) { JSON.parse( IO.read("spec/support/us_most_streamed.json")) }
     
     it "accepts one argument, a hash object" do
-      expect { spotify_chart.fetch_track_album_artist(json) }.to_not raise_error
+      expect { spotify_chart.fetch_track_album_artist(us_most_streamed) }.to_not raise_error
     end
 
     it "returns a string" do
-      expect(spotify_chart.fetch_track_album_artist(json).class).to eq(String)
+      expect(spotify_chart.fetch_track_album_artist(us_most_streamed).class).to eq(String)
     end
 
     it "returns '<song>' by <artist> from the album <album>" do
-      expect(spotify_chart.fetch_track_album_artist(json)).to eq("'All About That Bass' by Meghan Trainor from the album Title")
+      expect(spotify_chart.fetch_track_album_artist(us_most_streamed)).to eq("'All About That Bass' by Meghan Trainor from the album Title")
     end
   end
 
