@@ -45,7 +45,8 @@ describe SpotifyChart do
       end
     end
 
-    it "- returns the correct url for querying the API based on most shared/streamed and region abbreviation" do
+    it "- returns the correct url for querying the API based on 
+      most shared/streamed and region abbreviation" do
       expect(gb_most_streamed).to eq("http://charts.spotify.com/api/tracks/most_streamed/gb/weekly/latest")
       expect(us_most_shared).to eq("http://charts.spotify.com/api/tracks/most_shared/us/weekly/latest")
     end
