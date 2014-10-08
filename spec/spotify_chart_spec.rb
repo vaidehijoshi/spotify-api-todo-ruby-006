@@ -30,24 +30,24 @@ describe SpotifyChart do
       followed by a slash
       then the second argument
       followed by a slash
-      ending with 'latest'                        " do
+      ending with 'weekly/latest'                        " do
 
       regex = /http:\/\/charts.spotify.com\/api\/tracks\/most_streamed\//
-      regex_results = [regex.match(gb_most_streamed), /\/latest/.match(gb_most_streamed), /gb/.match(gb_most_streamed)]
+      regex_results = [regex.match(gb_most_streamed), /\/weekly\/latest/.match(gb_most_streamed), /gb/.match(gb_most_streamed)]
       regex_results.each do |match|
         expect(match).to_not be_nil
       end
 
       regex = /http:\/\/charts.spotify.com\/api\/tracks\/most_shared\//
-      regex_results = [regex.match(us_most_shared), /\/latest/.match(us_most_shared), /us/.match(us_most_shared)]
+      regex_results = [regex.match(us_most_shared), /\/weekly\/latest/.match(us_most_shared), /us/.match(us_most_shared)]
       regex_results.each do |match|
         expect(match).to_not be_nil
       end
     end
 
     it "- returns the correct url for querying the API based on most shared/streamed and region abbreviation" do
-      expect(gb_most_streamed).to eq("http://charts.spotify.com/api/tracks/most_streamed/gb/latest")
-      expect(us_most_shared).to eq("http://charts.spotify.com/api/tracks/most_shared/us/latest")
+      expect(gb_most_streamed).to eq("http://charts.spotify.com/api/tracks/most_streamed/gb/weekly/latest")
+      expect(us_most_shared).to eq("http://charts.spotify.com/api/tracks/most_shared/us/weekly/latest")
     end
   
   end
